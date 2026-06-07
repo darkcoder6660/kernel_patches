@@ -2,12 +2,13 @@
 <manifest>
   <remote fetch="https://git.codelinaro.org/clo/la" name="clo-la"/>
   <remote fetch="https://github.com/LineageOS" name="lineage"/>
+  <remote fetch="https://github.com/nullptr-t-oss" name="nullptr_t"/>
   <default remote="clo-la" revision="dummy_revision" sync-c="true" sync-tags="false"/>
   <project remote="lineage" name="android_kernel_oneplus_sm8550" path="kernel_platform/common" revision="lineage-23.2">
     <linkfile dest=".source_date_epoch_dir" src="."/>
     <linkfile dest="kernel_platform/msm-kernel" src="."/>
   </project>
-  <project remote="lineage" name="android_kernel_oneplus_sm8550-modules" path="vendor" revision="lineage-23.2">
+  <project remote="nullptr_t" name="android_kernel_oneplus_sm8550-modules" path="vendor" revision="lineage-23.2">
     <linkfile dest="kernel_platform/sm8550-modules" src="."/>
   </project>
   <project remote="clo-la" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="a27755ba41db8a1487c7d2ac7d0da22ec5e593c7" upstream="refs/heads/ks-kernel.lnx.2.0.r1-rel"/>
