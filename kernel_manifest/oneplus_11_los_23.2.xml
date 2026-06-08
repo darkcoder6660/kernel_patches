@@ -6,10 +6,12 @@
   <default remote="clo-la" revision="dummy_revision" sync-c="true" sync-tags="false"/>
   <project remote="lineage" name="android_kernel_oneplus_sm8550" path="kernel_platform/common" revision="lineage-23.2">
     <linkfile dest=".source_date_epoch_dir" src="."/>
+    <linkfile dest="kernel_platform/sm8550" src="."/>
     <linkfile dest="kernel_platform/msm-kernel" src="."/>
   </project>
-  <project remote="nullptr_t" name="android_kernel_oneplus_sm8550-modules" path="vendor" revision="lineage-23.2">
-    <linkfile dest="kernel_platform/sm8550-modules" src="."/>
+  <project remote="nullptr_t" name="android_kernel_oneplus_sm8550-modules" path="kernel_platform/sm8550-modules" revision="lineage-23.2">
+    <linkfile dest="vendor" src="."/>
+    <linkfile dest="kernel_platform/vendor" src="."/>
   </project>
   <project remote="clo-la" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="a27755ba41db8a1487c7d2ac7d0da22ec5e593c7" upstream="refs/heads/ks-kernel.lnx.2.0.r1-rel"/>
   <project remote="clo-la" name="kernel_platform/build/bazel_common_rules" path="kernel_platform/build/bazel_common_rules" revision="2158c0cec82374e92e9599e3a8fd9ec5c10ba7ad" upstream="refs/heads/ks-kernel.lnx.2.0.r1-rel"/>
