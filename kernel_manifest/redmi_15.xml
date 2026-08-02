@@ -2,10 +2,9 @@
 <manifest>
   <remote fetch="https://git.codelinaro.org/clo/la" name="clo-la"/>
   <remote fetch="https://android.googlesource.com/" name="aosp"/>
-  <remote fetch="https://github.com/suchit-7x" name="suchit"/>
   <remote fetch="https://github.com/nullptr-t-oss" name="nullptr_t"/>
   <default remote="clo-la" revision="dummy_revision" sync-c="true" sync-tags="false"/>
-  <project remote="suchit" name="kernel_xiaomi_spring" path="kernel_platform/common" revision="spring">
+  <project remote="nullptr_t" name="kernel_xiaomi_spring" path="kernel_platform/common" revision="spring">
     <linkfile dest=".source_date_epoch_dir" src="."/>
     <linkfile dest="kernel_platform/msm-kernel" src="."/>
   </project>
