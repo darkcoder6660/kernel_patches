@@ -11,14 +11,19 @@ MKBOOTIMG_RAMDISK_CPIO="${KERNEL_PATCHES}/prebuilts/sky-hos/boot/ramdisk.cpio"
 
 . ${KERNEL_PATCHES}/build_config/build.config.utils
 
-${RAMDISK_COMPRESS} "${MKBOOTIMG_RAMDISK_CPIO}" >"${OUT}/ramdisk.${RAMDISK_EXT}"
 
-MKBOOTIMG_ARGS=(
-  "--header_version" "4"
-  "--os_version" "12.0.0"
-  "--os_patch_level" "2099-12-01"
-  "--pagesize" "4096"
-  "--kernel" "${IMAGE}"
-  "--ramdisk" "${OUT}/ramdisk.${RAMDISK_EXT}"
-  "--output" "${OUT}/boot.img"
-)
+set_mkbootimg_args() {
+  ${RAMDISK_COMPRESS} "${MKBOOTIMG_RAMDISK_CPIO}" >"${OUT}/ramdisk.${RAMDISK_EXT}"
+
+  MKBOOTIMG_ARGS=(
+    "--header_version" "4"
+    "--os_version" "12.0.0"
+    "--os_patch_level" "2099-12-01"
+    "--pagesize" "4096"
+    "--kernel" "${IMAGE}"
+    "--ramdisk" "${OUT}/ramdisk.${RAMDISK_EXT}"
+    "--output" "${OUT}/boot.img"
+  )
+}
+
+PRE_MKBOOTIMG_CMDS="set_mkbootimg_args"
