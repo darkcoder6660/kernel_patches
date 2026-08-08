@@ -1,0 +1,12 @@
+
+DECOMPRESS_GZIP="gzip -c -d"
+DECOMPRESS_LZ4="lz4 -c -d -l"
+if [ -z "${LZ4_RAMDISK}" ] ; then
+  RAMDISK_COMPRESS="gzip -c -f"
+  RAMDISK_DECOMPRESS="${DECOMPRESS_GZIP}"
+  RAMDISK_EXT="gz"
+else
+  RAMDISK_COMPRESS="lz4 -c -l ${LZ4_RAMDISK_COMPRESS_ARGS:--12 --favor-decSpeed}"
+  RAMDISK_DECOMPRESS="${DECOMPRESS_LZ4}"
+  RAMDISK_EXT="lz4"
+fi
