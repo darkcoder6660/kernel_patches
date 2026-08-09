@@ -5,6 +5,11 @@
 #              This dir is relative to {ROOT_DIR}
 # ${IMAGE} holds the absolute path to the kernel
 
+CONFIGS=(
+  "gki_defconfig"
+  "vendor/sky_GKI.config"
+  "vendor/parrot_GKI.config"
+)
 
 LZ4_RAMDISK=1
 MKBOOTIMG_RAMDISK_CPIO="${KERNEL_PATCHES}/prebuilts/sky-hos/boot/ramdisk.cpio"
