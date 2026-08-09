@@ -14,7 +14,7 @@ CONFIGS=(
 LZ4_RAMDISK=1
 MKBOOTIMG_RAMDISK_CPIO="${KERNEL_PATCHES}/prebuilts/sky-hos/boot/ramdisk.cpio"
 
-. ${KERNEL_PATCHES}/build_config/build.config.utils
+. ${KERNEL_PATCHES}/device/generic/build_config/build.config.utils
 
 
 set_mkbootimg_args() {
