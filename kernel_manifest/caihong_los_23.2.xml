@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Define where to download the code from -->
+  <remote name="github" fetch="url?id=1" />
+  <remote name="oppad2" fetch="https://github.com/OnePlus-Pad-2-Development/" />
+
+  <!-- 1. The Main Kernel Source (Your Fork) -->
+  <project path="kernel/oneplus/sm8650" name="darkcoder6660/android_kernel_oneplus_sm8650" remote="github" />
+
+  <!-- 2. The OnePlus Pad 2 Device Trees -->
+  <!-- This ensures the kernel knows it is running on a Pad 2, not a OnePlus 12 -->
+  <project path="kernel/oneplus/sm8650-devicetrees" name="android_kernel_oneplus_sm8650-devicetrees" remote="oppad2" />
+  
+  <!-- 3. The OnePlus Pad 2 Hardware Modules -->
+  <!-- Contains the Wi-Fi drivers necessary for NetHunter packet injection -->
+  <project path="kernel/oneplus/sm8650-modules" name="android_kernel_oneplus_sm8650-modules" remote="oppad2" />
+
+  <!-- You can also add specific LineageOS/PixelOS techpacks here if the ROM requires them for audio/camera -->
+</manifest>
+
