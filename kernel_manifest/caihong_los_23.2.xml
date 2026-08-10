@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="github" fetch="https://github.com/" />
-  <remote name="lineageos" fetch="https://github.com/LineageOS/" />
-  <remote name="oppad2" fetch="https://github.com/OnePlus-Pad-2-Development/" />
   <remote name="clo-la" fetch="https://git.codelinaro.org/clo/la" />
 
   <default revision="lineage-23.2" remote="github" sync-j="4" />
 
-  <!-- 1. LineageOS Common Kernel for SM8650 (Reverted to 22.2) -->
-  <project path="kernel_platform/common" name="LineageOS/android_kernel_common_oneplus_sm8650" remote="lineageos" revision="lineage-22.2">
+  <!-- 1. Common Kernel (Must come from OnePlusOSS since Lineage doesn't fork this) -->
+  <project path="kernel_platform/common" name="OnePlusOSS/android_kernel_common_oneplus_sm8650" remote="github" revision="oneplus/sm8650_b_16.0.0_pad2">
     <linkfile dest="kernel_platform/.source_date_epoch_dir" src="."/>
   </project>
 
-  <!-- 2. Main Kernel Source (Your Fork stays on 23.2) -->
+  <!-- 2. Main Kernel Source (Your Fork) -->
   <project path="kernel_platform/msm-kernel" name="darkcoder6660/android_kernel_oneplus_sm8650" remote="github" revision="lineage-23.2">
     <linkfile dest="kernel_platform/WORKSPACE" src="bazel.WORKSPACE"/>
     <linkfile dest="kernel_platform/build_with_bazel.py" src="build_with_bazel.py"/>
   </project>
 
-  <!-- 3. OnePlus Pad 2 Device Trees & Modules (Reverted to 22.2) -->
-  <project path="kernel_platform/msm-kernel/devicetrees" name="android_kernel_oneplus_sm8650-devicetrees" remote="oppad2" revision="lineage-22.2" />
-  <project path="kernel_platform/msm-kernel/modules" name="android_kernel_oneplus_sm8650-modules" remote="oppad2" revision="lineage-22.2" />
+  <!-- 3. Device Trees & Modules (Pulled from official LineageOS which has the 23.2 branch) -->
+  <project path="kernel_platform/msm-kernel/devicetrees" name="LineageOS/android_kernel_oneplus_sm8650-devicetrees" remote="github" revision="lineage-23.2" />
+  <project path="kernel_platform/msm-kernel/modules" name="LineageOS/android_kernel_oneplus_sm8650-modules" remote="github" revision="lineage-23.2" />
 
   <!-- 4. Mandatory CodeLinaro / GKI Build Toolchain Dependencies -->
   <project remote="clo-la" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="d153b7ab4a4956198957e258d4f370e875c53059" upstream="refs/heads/ks-kernel.lnx.3.0.r1-rel" clone-depth="1">
