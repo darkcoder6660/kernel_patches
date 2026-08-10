@@ -7,20 +7,20 @@
 
   <default revision="lineage-23.2" remote="github" sync-j="4" />
 
-  <!-- 1. LineageOS Common Kernel for SM8650 (With Bazel Linkfile) -->
-  <project path="kernel_platform/common" name="LineageOS/android_kernel_common_oneplus_sm8650" remote="lineageos" revision="lineage-23.2">
+  <!-- 1. LineageOS Common Kernel for SM8650 (Reverted to 22.2) -->
+  <project path="kernel_platform/common" name="LineageOS/android_kernel_common_oneplus_sm8650" remote="lineageos" revision="lineage-22.2">
     <linkfile dest="kernel_platform/.source_date_epoch_dir" src="."/>
   </project>
 
-  <!-- 2. Main Kernel Source (Your Fork) (With Bazel Linkfiles) -->
+  <!-- 2. Main Kernel Source (Your Fork stays on 23.2) -->
   <project path="kernel_platform/msm-kernel" name="darkcoder6660/android_kernel_oneplus_sm8650" remote="github" revision="lineage-23.2">
     <linkfile dest="kernel_platform/WORKSPACE" src="bazel.WORKSPACE"/>
     <linkfile dest="kernel_platform/build_with_bazel.py" src="build_with_bazel.py"/>
   </project>
 
-  <!-- 3. OnePlus Pad 2 Device Trees & Modules (Unified to 23.2) -->
-  <project path="kernel_platform/msm-kernel/devicetrees" name="android_kernel_oneplus_sm8650-devicetrees" remote="oppad2" revision="lineage-23.2" />
-  <project path="kernel_platform/msm-kernel/modules" name="android_kernel_oneplus_sm8650-modules" remote="oppad2" revision="lineage-23.2" />
+  <!-- 3. OnePlus Pad 2 Device Trees & Modules (Reverted to 22.2) -->
+  <project path="kernel_platform/msm-kernel/devicetrees" name="android_kernel_oneplus_sm8650-devicetrees" remote="oppad2" revision="lineage-22.2" />
+  <project path="kernel_platform/msm-kernel/modules" name="android_kernel_oneplus_sm8650-modules" remote="oppad2" revision="lineage-22.2" />
 
   <!-- 4. Mandatory CodeLinaro / GKI Build Toolchain Dependencies -->
   <project remote="clo-la" name="kernel/prebuilts/build-tools" path="kernel_platform/prebuilts/kernel-build-tools" revision="d153b7ab4a4956198957e258d4f370e875c53059" upstream="refs/heads/ks-kernel.lnx.3.0.r1-rel" clone-depth="1">
